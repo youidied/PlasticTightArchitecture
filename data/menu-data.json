@@ -11,6 +11,34 @@
           "description": "kiwi dielcious juice",
           "price": 12,
           "image": "https://i.postimg.cc/tTdjHSTL/A-casual-photo-of-A-tall-elega-2.jpg"
+        },
+        {
+          "id": "mbm46k5uwybf20no4352g",
+          "name": "kiwi juice",
+          "description": "kiwi dielcious juice",
+          "price": 12,
+          "image": "https://i.postimg.cc/mk8WPP7j/A-casual-photo-of-A-tall-elega-1.jpg"
+        },
+        {
+          "id": "mbm46k5uwybf202353no2g",
+          "name": "kiwi juice",
+          "description": "kiwi dielcious juice",
+          "price": 12,
+          "image": "https://i.postimg.cc/WbYPjJNb/A-casual-photo-of-A-tall-elega-6.jpg"
+        },
+        {
+          "id": "mbm46k5u23wybf20no2g",
+          "name": "kiwi juice",
+          "description": "kiwi dielcious juice",
+          "price": 12,
+          "image": "https://i.postimg.cc/xjR2x4Bm/A-casual-photo-of-A-tall-elega-3.jpg"
+        },
+        {
+          "id": "mbm4rdc3ve59wwssoxn",
+          "name": "1",
+          "description": "1",
+          "price": 1,
+          "image": "https://i.postimg.cc/26NDMRzQ/A-casual-photo-of-A-tall-elega-5.jpg"
         }
       ]
     },
@@ -25,12 +53,117 @@
           "description": "ص",
           "price": 19,
           "image": "https://i.postimg.cc/VNfcyF8H/A-casual-photo-of-A-natural-fr.jpg"
+        },
+        {
+          "id": "mbm564q7vdlzb18xymn",
+          "name": "عصير برتقال",
+          "description": "ص",
+          "price": 13,
+          "image": "https://i.postimg.cc/R0pCXYHT/A-casual-photo-of-A-tall-elega.jpg"
+        },
+        {
+          "id": "mbm59rq635zzhhwz52x",
+          "name": "عصير مانجو",
+          "description": "ث",
+          "price": 24,
+          "image": "https://i.postimg.cc/ZR0tnK08/A-casual-photo-of-A-tall-elega-1.jpg"
+        },
+        {
+          "id": "mbm5cv8lyds7judjab",
+          "name": "عصير افوكادو",
+          "description": "ق",
+          "price": 54,
+          "image": "https://i.postimg.cc/QMdxgDHt/A-casual-photo-of-A-tall-elega-10.jpg"
+        },
+        {
+          "id": "mbm5dl6hsmk8fmvkpf",
+          "name": "عصير ",
+          "description": "خ",
+          "price": 46,
+          "image": "https://i.postimg.cc/JngwkVB9/A-casual-photo-of-A-tall-elega-2.jpg"
+        },
+        {
+          "id": "mbm69yir35alu6i0upp",
+          "name": "عصير فراولة",
+          "description": "لف",
+          "price": 65,
+          "image": "https://i.postimg.cc/LhKrxtDD/A-casual-photo-of-A-tall-elega-3.jpg"
+        },
+        {
+          "id": "mbm6cpn2cnmnpnl5c9q",
+          "name": "عصير ليمون",
+          "description": "س",
+          "price": 23,
+          "image": "https://i.postimg.cc/v8gTSGXx/A-casual-photo-of-A-tall-elega-5.jpg"
+        },
+        {
+          "id": "mbm6fmw13i3ckvg4n5c",
+          "name": "عصير ليمون نعناع",
+          "description": "س",
+          "price": 23,
+          "image": "https://i.postimg.cc/nVyzyNwR/A-casual-photo-of-A-tall-elega-6.jpg"
+        },
+        {
+          "id": "mbm6j02ik0zmun1ojam",
+          "name": "عصير رمان",
+          "description": "تن",
+          "price": 23,
+          "image": "https://i.postimg.cc/g2D26jcQ/A-casual-photo-of-A-tall-elega-9.jpg"
+        },
+        {
+          "id": "mbm6l9ktpu5ancbdabg",
+          "name": "عصير موز",
+          "description": "ش",
+          "price": 21,
+          "image": "https://i.postimg.cc/NFmgGfPN/A-casual-photo-of-A-tall-styli.jpg"
+        },
+        {
+          "id": "mbm6r0r6pzhhbreyy1",
+          "name": "عصير افوكادو مع المكسرات",
+          "description": "غع",
+          "price": 32,
+          "image": "https://i.postimg.cc/d17sX9Rc/A-casual-photo-of-A-tall-elega-11.jpg "
+        },
+        {
+          "id": "mbm6sw0z8lhzn6f9qqk",
+          "name": "عصير كيوي ",
+          "description": "ص",
+          "price": 12,
+          "image": "https://i.postimg.cc/zvRswtC3/A-casual-photo-of-A-tall-elega-4.jpg"
+        },
+        {
+          "id": "mbm6wg1okirrhy2cu3",
+          "name": "عصير اناناس ",
+          "description": "ص",
+          "price": 23,
+          "image": "https://i.postimg.cc/85qpVrwJ/A-casual-photo-of-A-tall-sleek.jpg"
+        }
+      ]
+    },
+    {
+      "id": "mbm76a867xeppf7tc3u",
+      "name": "سموزي",
+      "icon": "fas fa-glass-martini-alt",
+      "items": [
+        {
+          "id": "mbm79742bq26c0g9wb",
+          "name": "سموزي فراولة",
+          "description": "ض",
+          "price": 12,
+          "image": "https://i.postimg.cc/CxRFghkD/A-chilled-mason-jar-with-a-stu-1.jpg"
+        },
+        {
+          "id": "mbm79ue3ysn355z7roh",
+          "name": "سموزي مانجو",
+          "description": "س",
+          "price": 12,
+          "image": "https://i.postimg.cc/022kVdNV/A-chilled-mason-jar-with-a-stu-2.jpg"
         }
       ]
     }
   ],
   "metadata": {
-    "lastModified": "2025-06-07T11:25:03.946Z",
+    "lastModified": "2025-06-07T12:18:28.320Z",
     "version": "1.0.0",
     "created": "2025-06-06T21:29:32.925Z"
   },
