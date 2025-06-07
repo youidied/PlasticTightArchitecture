@@ -711,21 +711,24 @@ app.use((req, res) => {
   });
 });
 
+
+// Replace this section at the bottom of your server.js:
+
 // ======================
 // 9. SERVER INITIALIZATION
 // ======================
 const PORT = process.env.PORT || 2000;
-const HOST = process.env.HOST || 'localhost';
+const HOST = process.env.NODE_ENV === 'production' ? '0.0.0.0' : 'localhost';
 
 const server = app.listen(PORT, HOST, async () => {
   console.log('🚀 OnSea Menu Management Server Started');
   console.log('=====================================');
-  console.log(`📡 Server running at http://${HOST}:${PORT}`);
+  console.log(`📡 Server running on port ${PORT}`);
   console.log(`📁 Serving files from: ${__dirname}`);
-  console.log(`🔗 Main site: http://${HOST}:${PORT}/`);
-  console.log(`🔐 Login page: http://${HOST}:${PORT}/login`);
-  console.log(`📊 Admin panel: http://${HOST}:${PORT}/admin`);
-  console.log(`💓 Health check: http://${HOST}:${PORT}/api/health`);
+  console.log(`🔗 Main site: Available on assigned URL`);
+  console.log(`🔐 Login page: /login`);
+  console.log(`📊 Admin panel: /admin`);
+  console.log(`💓 Health check: /api/health`);
   console.log('=====================================');
 
   // Initialize data on startup
