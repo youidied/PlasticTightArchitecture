@@ -11,34 +11,6 @@
           "description": "kiwi dielcious juice",
           "price": 12,
           "image": "https://i.postimg.cc/tTdjHSTL/A-casual-photo-of-A-tall-elega-2.jpg"
-        },
-        {
-          "id": "mbm46k5uwybf20no4352g",
-          "name": "kiwi juice",
-          "description": "kiwi dielcious juice",
-          "price": 12,
-          "image": "https://i.postimg.cc/mk8WPP7j/A-casual-photo-of-A-tall-elega-1.jpg"
-        },
-        {
-          "id": "mbm46k5uwybf202353no2g",
-          "name": "kiwi juice",
-          "description": "kiwi dielcious juice",
-          "price": 12,
-          "image": "https://i.postimg.cc/WbYPjJNb/A-casual-photo-of-A-tall-elega-6.jpg"
-        },
-        {
-          "id": "mbm46k5u23wybf20no2g",
-          "name": "kiwi juice",
-          "description": "kiwi dielcious juice",
-          "price": 12,
-          "image": "https://i.postimg.cc/xjR2x4Bm/A-casual-photo-of-A-tall-elega-3.jpg"
-        },
-        {
-          "id": "mbm4rdc3ve59wwssoxn",
-          "name": "1",
-          "description": "1",
-          "price": 1,
-          "image": "https://i.postimg.cc/26NDMRzQ/A-casual-photo-of-A-tall-elega-5.jpg"
         }
       ]
     },
@@ -53,34 +25,6 @@
           "description": "ص",
           "price": 19,
           "image": "https://i.postimg.cc/VNfcyF8H/A-casual-photo-of-A-natural-fr.jpg"
-        },
-        {
-          "id": "mbm564q7vdlzb18xymn",
-          "name": "عصير برتقال",
-          "description": "ص",
-          "price": 13,
-          "image": "https://i.postimg.cc/R0pCXYHT/A-casual-photo-of-A-tall-elega.jpg"
-        },
-        {
-          "id": "mbm59rq635zzhhwz52x",
-          "name": "عصير مانجو",
-          "description": "ث",
-          "price": 24,
-          "image": "https://i.postimg.cc/ZR0tnK08/A-casual-photo-of-A-tall-elega-1.jpg"
-        },
-        {
-          "id": "mbm5cv8lyds7judjab",
-          "name": "عصير افوكادو",
-          "description": "ق",
-          "price": 54,
-          "image": "https://i.postimg.cc/QMdxgDHt/A-casual-photo-of-A-tall-elega-10.jpg"
-        },
-        {
-          "id": "mbm5dl6hsmk8fmvkpf",
-          "name": "عصير ",
-          "description": "خ",
-          "price": 46,
-          "image": "https://i.postimg.cc/JngwkVB9/A-casual-photo-of-A-tall-elega-2.jpg"
         }
       ]
     }
