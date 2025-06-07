@@ -1,16 +1,50 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>replit</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OnSea - المنيو</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles/main.css">
 </head>
-
 <body>
-  Hello world
-  <script src="script.js"></script>
-</body>
+  <div id="loadingScreen">
+    <img class="loading-logo" src="https://i.postimg.cc/DZ2b2RHr/image.png" alt="OnSea Logo">
+    <div class="loading-text">جاري التحميل...</div>
+  </div>
 
+  <button id="scrollTopBtn" title="أعلى"><i class="fas fa-arrow-up"></i></button>
+
+  <header>
+    <img src="https://i.postimg.cc/DZ2b2RHr/image.png" alt="شعار OnSea" />
+  </header>
+
+  <nav class="menu-tabs" id="menuTabs">
+    <!-- Tabs will be dynamically loaded from JSON -->
+  </nav>
+
+  <main id="menuContainer">
+    <!-- Menu sections will be dynamically loaded from JSON -->
+  </main>
+
+  <footer>
+    <p>OnSea - جميع الحقوق محفوظة © <span id="currentYear"></span></p>
+    <p>هاتف: 0123456789 | البريد الإلكتروني: info@onsea.com</p>
+  </footer>
+
+  <!-- Item Details Modal -->
+  <div id="itemModal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" id="modalClose">×</span>
+      <img src="" alt="" id="modalImg" />
+      <div class="modal-text">
+        <h3 id="modalName"></h3>
+        <p class="description" id="modalDesc"></p>
+        <p class="price" id="modalPrice"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts/main.js"></script>
+</body>
 </html>

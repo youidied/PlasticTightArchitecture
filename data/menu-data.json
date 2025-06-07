@@ -1,0 +1,45 @@
+{
+  "menuCategories": [
+    {
+      "id": "mbleuzu0zvdf8fy9fwl4g",
+      "name": "مشروبات",
+      "icon": "fas fa-glass-martini-alt",
+      "items": [
+        {
+          "id": "mbm46k5uwybf20no22354g",
+          "name": "kiwi juice",
+          "description": "kiwi dielcious juice",
+          "price": 12,
+          "image": "https://i.postimg.cc/dtVKz9Kx/A-casual-photo-of-A-tall-elega.jpg"
+        },{
+          "id": "mbm46k5uwybf20no4352g",
+          "name": "kiwi juice",
+          "description": "kiwi dielcious juice",
+          "price": 12,
+          "image": "https://i.postimg.cc/dtVKz9Kx/A-casual-photo-of-A-tall-elega.jpg"
+        },{
+          "id": "mbm46k5uwybf202353no2g",
+          "name": "kiwi juice",
+          "description": "kiwi dielcious juice",
+          "price": 12,
+          "image": "https://i.postimg.cc/dtVKz9Kx/A-casual-photo-of-A-tall-elega.jpg"
+        },{
+          "id": "mbm46k5u23wybf20no2g",
+          "name": "kiwi juice",
+          "description": "kiwi dielcious juice",
+          "price": 12,
+          "image": "https://i.postimg.cc/dtVKz9Kx/A-casual-photo-of-A-tall-elega.jpg"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "lastModified": "2025-06-07T10:51:35.701Z",
+    "version": "1.0.0",
+    "created": "2025-06-06T21:29:32.925Z"
+  },
+  "adminCredentials": {
+    "username": "admin",
+    "password": "admin123"
+  }
+}

@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OnSea - المنيو</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap');
+
+    :root {
+      --ocean-blue: #006994;
+      --deep-sea: #004d6b;
+      --coral: #ff6b35;
+      --sand: #f4f1de;
+      --seafoam: #81c3d7;
+      --wave-blue: #0fa3d1;
+      --sunset: #ff8500;
+      --pearl: #ffffff;
+      --driftwood: #8b7355;
+      --seashell: #fef7f0;
+      --gradient-ocean: linear-gradient(135deg, #006994 0%, #0fa3d1 50%, #81c3d7 100%);
+      --gradient-sunset: linear-gradient(135deg, #ff6b35 0%, #ff8500 100%);
+      --shadow-soft: 0 8px 32px rgba(0, 105, 148, 0.15);
+      --shadow-deep: 0 12px 40px rgba(0, 105, 148, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background: var(--gradient-ocean);
+      color: var(--pearl);
+      direction: rtl;
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Beach Wave Background Animation */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(129, 195, 215, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(15, 163, 209, 0.3) 0%, transparent 50%);
+      z-index: -1;
+      animation: waveFloat 20s ease-in-out infinite;
+    }
+
+    @keyframes waveFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      33% { transform: translateY(-20px) rotate(1deg); }
+      66% { transform: translateY(10px) rotate(-1deg); }
+    }
+
+    /* Loading Screen */
+    #loadingScreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient-ocean);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.8s ease;
+    }
+
+    .loading-logo {
+      width: 200px;
+      height: 200px;
+      animation: pulse 2s infinite, float 4s infinite ease-in-out;
+      transition: all 1s ease;
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3)); }
+      50% { transform: scale(1.1); filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4)); }
+      100% { transform: scale(1); filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3)); }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-30px); }
+      100% { transform: translateY(0); }
+    }
+
+    .loading-text {
+      font-size: 24px;
+      color: var(--sand);
+      opacity: 0.9;
+      animation: fade 2s infinite;
+      margin-top: 20px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    @keyframes fade {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    /* Header with Beach Vibes */
+    header {
+      background: linear-gradient(135deg, var(--deep-sea) 0%, var(--ocean-blue) 100%);
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: var(--shadow-deep);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      border-bottom: 3px solid var(--coral);
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%23ff6b35'%3E%3C/path%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%23ff6b35'%3E%3C/path%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%23ff6b35'%3E%3C/path%3E%3C/svg%3E") repeat-x;
+      background-size: 1200px 10px;
+    }
+
+    header img {
+      height: 80px;
+      max-width: 200px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+      transition: transform 0.3s ease;
+    }
+
+    header img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Navigation Tabs with Beach Theme */
+    .menu-tabs {
+      display: flex;
+      overflow-x: auto;
+      gap: 25px;
+      padding: 20px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      background: linear-gradient(135deg, var(--ocean-blue) 0%, var(--wave-blue) 100%);
+      border-bottom: 2px solid var(--seafoam);
+    }
+
+    .menu-tabs::-webkit-scrollbar { 
+      height: 8px;
+    }
+
+    .menu-tabs::-webkit-scrollbar-thumb {
+      background: var(--coral);
+      border-radius: 4px;
+    }
+
+    .menu-tab {
+      flex: 0 0 auto;
+      scroll-snap-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--sand);
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      user-select: none;
+      min-width: 100px;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .menu-tab.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .menu-tab .icon-circle {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: var(--gradient-sunset);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      font-size: 28px;
+      color: var(--pearl);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu-tab .icon-circle::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transform: rotate(45deg);
+      transition: all 0.6s;
+      opacity: 0;
+    }
+
+    .menu-tab:hover .icon-circle::before {
+      animation: shimmer 1.5s ease-in-out;
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateX(100%) translateY(100%) rotate(45deg); opacity: 0; }
+    }
+
+    .menu-tab.active {
+      color: var(--coral);
+      transform: translateY(-5px);
+    }
+
+    .menu-tab.active .icon-circle {
+      background: var(--coral);
+      transform: scale(1.15);
+      box-shadow: var(--shadow-deep);
+      animation: gentlePulse 2s infinite;
+    }
+
+    @keyframes gentlePulse {
+      0%, 100% { box-shadow: var(--shadow-deep); }
+      50% { box-shadow: 0 15px 50px rgba(255, 107, 53, 0.4); }
+    }
+
+    .menu-tab:hover:not(.active) {
+      color: var(--pearl);
+      transform: translateY(-3px);
+    }
+
+    .menu-tab:hover:not(.active) .icon-circle {
+      background: var(--seafoam);
+      transform: scale(1.1);
+      box-shadow: var(--shadow-deep);
+    }
+
+    /* Menu Sections */
+    section.menu-section {
+      padding: 80px 20px;
+      scroll-margin-top: 120px;
+      position: relative;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    section.menu-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section.menu-section h2 {
+      font-size: 36px;
+      margin-bottom: 40px;
+      color: var(--sand);
+      text-align: center;
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    section.menu-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: var(--gradient-sunset);
+      border-radius: 2px;
+    }
+
+    /* Beach-themed divider waves */
+    section.menu-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z' fill='rgba(129, 195, 215, 0.2)'%3E%3C/path%3E%3C/svg%3E") repeat-x;
+      background-size: 1200px 60px;
+    }
+
+    /* Menu Grid */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+    }
+
+    .menu-item {
+      background: var(--seashell);
+      border-radius: 25px;
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(30px);
+      position: relative;
+      border: 2px solid transparent;
+    }
+
+    .menu-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .menu-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--gradient-sunset);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 25px;
+      z-index: 1;
+    }
+
+    .menu-item:hover::before {
+      opacity: 0.1;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-15px) scale(1.05);
+      box-shadow: var(--shadow-deep);
+      border-color: var(--coral);
+    }
+
+    .menu-item img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 25px 25px 0 0;
+      transition: transform 0.4s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .menu-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .menu-item-content {
+      padding: 20px;
+      position: relative;
+      z-index: 2;
+      background: var(--seashell);
+    }
+
+    .menu-item h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      color: var(--deep-sea);
+      font-weight: 600;
+    }
+
+    .menu-item p {
+      margin: 0;
+      font-weight: bold;
+      font-size: 18px;
+      color: var(--coral);
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 77, 107, 0.9);
+      backdrop-filter: blur(5px);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: var(--seashell);
+      border-radius: 20px;
+      max-width: 450px;
+      width: 100%;
+      position: relative;
+      text-align: center;
+      box-shadow: var(--shadow-deep);
+      overflow: hidden;
+      transform: scale(0.8);
+      opacity: 0;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+      border: 3px solid var(--coral);
+    }
+
+    .modal.show .modal-content {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    .modal-content img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .modal-text {
+      padding: 25px;
+      background: var(--seashell);
+    }
+
+    .modal-content h3 {
+      margin: 0 0 15px;
+      color: var(--deep-sea);
+      font-size: 26px;
+      font-weight: 700;
+    }
+
+    .modal-content p.description {
+      font-size: 16px;
+      color: var(--driftwood);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .modal-content p.price {
+      font-weight: bold;
+      font-size: 24px;
+      color: var(--coral);
+      margin-bottom: 10px;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      font-size: 28px;
+      font-weight: bold;
+      color: var(--pearl);
+      background: var(--coral);
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    .modal-close:hover {
+      background: var(--sunset);
+      transform: rotate(90deg) scale(1.1);
+    }
+
+    /* Scroll to Top Button */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 999;
+      background: var(--gradient-sunset);
+      color: var(--pearl);
+      border: none;
+      width: 60px;
+      height: 60px;
+      font-size: 24px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: var(--shadow-deep);
+      display: none;
+      transition: all 0.4s ease;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    #scrollTopBtn.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #scrollTopBtn:hover {
+      transform: translateY(-8px) scale(1.1);
+      box-shadow: 0 20px 40px rgba(255, 107, 53, 0.4);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--deep-sea);
+      color: var(--sand);
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 16px;
+      position: relative;
+      margin-top: 60px;
+      border-top: 3px solid var(--coral);
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' fill='%23ff6b35'%3E%3C/path%3E%3C/svg%3E") repeat-x;
+      background-size: 1200px 10px;
+    }
+
+    .category-count {
+      background: var(--coral);
+      color: var(--pearl);
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      margin-right: 8px;
+      font-weight: bold;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .menu-tab span {
+        font-size: 14px;
+      }
+
+      .menu-tab .icon-circle {
+        width: 55px;
+        height: 55px;
+        font-size: 22px;
+      }
+
+      section.menu-section h2 {
+        font-size: 28px;
+      }
+
+      .menu-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+      }
+
+      section.menu-section {
+        padding: 60px 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .menu-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+      }
+
+      .menu-item img {
+        height: 140px;
+      }
+
+      .menu-item-content {
+        padding: 15px;
+      }
+
+      .menu-item h3 {
+        font-size: 18px;
+      }
+
+      .menu-item p {
+        font-size: 16px;
+      }
+
+      header img {
+        height: 60px;
+      }
+
+      section.menu-section h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="loadingScreen">
+    <img class="loading-logo" src="https://i.postimg.cc/DZ2b2RHr/image.png" alt="OnSea Logo">
+    <div class="loading-text">جاري التحميل...</div>
+  </div>
+
+  <button id="scrollTopBtn" title="أعلى"><i class="fas fa-arrow-up"></i></button>
+
+  <header>
+    <img src="https://i.postimg.cc/DZ2b2RHr/image.png" alt="شعار OnSea" />
+  </header>
+
+  <nav class="menu-tabs" id="menuTabs">
+    <!-- Sample tabs for demonstration -->
+    <div class="menu-tab active visible">
+      <div class="icon-circle">
+        <i class="fas fa-utensils"></i>
+      </div>
+      <span>الأطباق الرئيسية</span>
+    </div>
+    <div class="menu-tab visible">
+      <div class="icon-circle">
+        <i class="fas fa-fish"></i>
+      </div>
+      <span>المأكولات البحرية</span>
+    </div>
+    <div class="menu-tab visible">
+      <div class="icon-circle">
+        <i class="fas fa-cocktail"></i>
+      </div>
+      <span>المشروبات</span>
+    </div>
+    <div class="menu-tab visible">
+      <div class="icon-circle">
+        <i class="fas fa-ice-cream"></i>
+      </div>
+      <span>الحلويات</span>
+    </div>
+  </nav>
+
+  <main id="menuContainer">
+    <!-- Sample menu section -->
+    <section class="menu-section visible">
+      <h2>المأكولات البحرية الطازجة</h2>
+      <div class="menu-grid">
+        <div class="menu-item visible">
+          <img src="https://images.unsplash.com/photo-1544943150-4b4dc0956b47?w=300&h=200&fit=crop" alt="سمك مشوي">
+          <div class="menu-item-content">
+            <h3>سمك مشوي على الفحم</h3>
+            <p>85 ريال</p>
+          </div>
+        </div>
+        <div class="menu-item visible">
+          <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=300&h=200&fit=crop" alt="جمبري">
+          <div class="menu-item-content">
+            <h3>جمبري مقلي</h3>
+            <p>95 ريال</p>
+          </div>
+        </div>
+        <div class="menu-item visible">
+          <img src="https://images.unsplash.com/photo-1544943150-4b4dc0956b47?w=300&h=200&fit=crop" alt="كاليماري">
+          <div class="menu-item-content">
+            <h3>كاليماري محشي</h3>
+            <p>75 ريال</p>
+          </div>
+        </div>
+        <div class="menu-item visible">
+          <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=300&h=200&fit=crop" alt="سلطة البحر">
+          <div class="menu-item-content">
+            <h3>سلطة البحر المتوسط</h3>
+            <p>65 ريال</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>OnSea - جميع الحقوق محفوظة © <span id="currentYear">2024</span></p>
+    <p>هاتف: 0123456789 | البريد الإلكتروني: info@onsea.com</p>
+  </footer>
+
+  <!-- Item Details Modal -->
+  <div id="itemModal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" id="modalClose">×</span>
+      <img src="" alt="" id="modalImg" />
+      <div class="modal-text">
+        <h3 id="modalName"></h3>
+        <p class="description" id="modalDesc"></p>
+        <p class="price" id="modalPrice"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // DOM Elements
+    const menuTabs = document.getElementById('menuTabs');
+    const menuContainer = document.getElementById('menuContainer');
+    const loadingScreen = document.getElementById('loadingScreen');
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    const currentYear = document.getElementById('currentYear');
+
+    // Set current year in footer
+    currentYear.textContent = new Date().getFullYear();
+
+    // Fetch menu data from JSON
+    fetch('data/menu-data.json')
+      .then(response => response.json())
+      .then(data => {
+        // Clear existing content
+        menuTabs.innerHTML = '';
+        menuContainer.innerHTML = '';
+
+        // Create menu tabs
+        data.menuCategories.forEach(category => {
+          const tab = document.createElement('div');
+          tab.className = 'menu-tab';
+          tab.setAttribute('data-target', category.id);
+
+          tab.innerHTML = `
+            <div class="icon-circle"><i class="fas ${category.icon}"></i></div>
+            <span>${category.name}</span>
+            <span class="category-count">${category.items.length}</span>
+          `;
+
+          menuTabs.appendChild(tab);
+        });
+
+        // Create menu sections
+        data.menuCategories.forEach(category => {
+          const section = document.createElement('section');
+          section.id = category.id;
+          section.className = 'menu-section';
+
+          let itemsHTML = '';
+          category.items.forEach(item => {
+            itemsHTML += `
+              <div class="menu-item" 
+                   data-name="${item.name}" 
+                   data-desc="${item.description}" 
+                   data-price="${item.price}" 
+                   data-img="${item.image}">
+                <img src="${item.image}" alt="${item.name}" />
+                <div class="menu-item-content">
+                  <h3>${item.name}</h3>
+                  <p>${item.price}</p>
+                </div>
+              </div>
+            `;
+          });
+
+          section.innerHTML = `
+            <h2>${category.name}</h2>
+            <div class="menu-grid">${itemsHTML}</div>
+          `;
+
+          menuContainer.appendChild(section);
+        });
+
+        // Initialize after data is loaded
+        initialize();
+      })
+      .catch(error => {
+        console.error('Error loading menu data:', error);
+        loadingScreen.innerHTML = `
+          <div class="error-message">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p>حدث خطأ في تحميل القائمة. يرجى المحاولة لاحقاً.</p>
+            <button onclick="window.location.reload()">إعادة المحاولة</button>
+          </div>
+        `;
+      });
+
+    // Initialize all functionality
+    function initialize() {
+      // Hide loading screen
+      setTimeout(() => {
+        loadingScreen.style.opacity = '0';
+        setTimeout(() => {
+          loadingScreen.style.display = 'none';
+        }, 500);
+      }, 1000);
+
+      // Tab Navigation
+      const tabs = document.querySelectorAll('.menu-tab');
+      const sections = document.querySelectorAll('.menu-section');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+
+          const targetId = tab.getAttribute('data-target');
+          const targetSection = document.getElementById(targetId);
+
+          if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+
+      // Scroll handler with active tab detection
+      window.addEventListener('scroll', () => {
+        let current = '';
+        const scrollPosition = window.pageYOffset + 150;
+
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+
+          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            current = section.id;
+          }
+        });
+
+        tabs.forEach(tab => {
+          tab.classList.remove('active');
+          if (tab.getAttribute('data-target') === current) {
+            tab.classList.add('active');
+          }
+        });
+
+        // Show/hide scroll to top button
+        if (window.pageYOffset > 300) {
+          scrollTopBtn.style.display = 'block';
+          setTimeout(() => {
+            scrollTopBtn.classList.add('visible');
+          }, 10);
+        } else {
+          scrollTopBtn.classList.remove('visible');
+          setTimeout(() => {
+            scrollTopBtn.style.display = 'none';
+          }, 300);
+        }
+      });
+
+      // Scroll to top button
+      scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
+      // Modal functionality
+      const modal = document.getElementById('itemModal');
+      const modalImg = document.getElementById('modalImg');
+      const modalName = document.getElementById('modalName');
+      const modalDesc = document.getElementById('modalDesc');
+      const modalPrice = document.getElementById('modalPrice');
+      const modalClose = document.getElementById('modalClose');
+
+      document.querySelectorAll('.menu-item').forEach(item => {
+        item.addEventListener('click', () => {
+          modal.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+
+          modalImg.src = item.getAttribute('data-img');
+          modalImg.alt = item.getAttribute('data-name');
+          modalName.textContent = item.getAttribute('data-name');
+          modalDesc.textContent = item.getAttribute('data-desc');
+          modalPrice.textContent = item.getAttribute('data-price');
+
+          setTimeout(() => {
+            modal.classList.add('show');
+          }, 10);
+        });
+      });
+
+      function closeModal() {
+        modal.classList.remove('show');
+        setTimeout(() => {
+          modal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }, 300);
+      }
+
+      modalClose.addEventListener('click', closeModal);
+      window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+
+      // Intersection Observer for animations
+      const animateOnScroll = (elements, className) => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add(className);
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+
+        elements.forEach(element => observer.observe(element));
+      };
+
+      // Animate elements when they come into view
+      animateOnScroll(document.querySelectorAll('.menu-tab'), 'visible');
+      animateOnScroll(document.querySelectorAll('.menu-section'), 'visible');
+      animateOnScroll(document.querySelectorAll('.menu-item'), 'visible');
+    }
+  </script>
+</body>
+</html>

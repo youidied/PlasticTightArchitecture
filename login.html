@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <title>تسجيل الدخول - OnSea</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      margin: 0; 
+      padding: 20px; 
+      background: #f5f5f5; 
+    }
+    .login-container { 
+      max-width: 400px; 
+      margin: 50px auto; 
+      background: white; 
+      padding: 30px; 
+      border-radius: 10px; 
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+    }
+    h1 { 
+      text-align: center; 
+      color: #333; 
+      margin-bottom: 30px; 
+    }
+    .form-group { 
+      margin-bottom: 20px; 
+    }
+    label { 
+      display: block; 
+      margin-bottom: 5px; 
+      color: #555; 
+    }
+    input { 
+      width: 100%; 
+      padding: 10px; 
+      border: 1px solid #ddd; 
+      border-radius: 5px; 
+      box-sizing: border-box; 
+    }
+    button { 
+      width: 100%; 
+      padding: 12px; 
+      background: #007bff; 
+      color: white; 
+      border: none; 
+      border-radius: 5px; 
+      cursor: pointer; 
+      font-size: 16px;
+    }
+    button:hover { 
+      background: #0056b3; 
+    }
+    button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+    .error { 
+      color: red; 
+      margin-top: 10px; 
+      padding: 10px;
+      background: #ffeaea;
+      border-radius: 5px;
+      display: none;
+    }
+    .success {
+      color: green;
+      margin-top: 10px;
+      padding: 10px;
+      background: #eaffea;
+      border-radius: 5px;
+      display: none;
+    }
+    .debug {
+      margin-top: 20px;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 5px;
+      font-size: 12px;
+      color: #666;
+    }
+    .loading {
+      display: none;
+      text-align: center;
+      margin-top: 10px;
+      color: #666;
+    }
+    .default-creds {
+      background: #e7f3ff;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: #0066cc;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>تسجيل الدخول</h1>
+    
+    <div class="default-creds">
+      <strong>Default Credentials:</strong><br>
+      Username: admin<br>
+      Password: admin123
+    </div>
+
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="username">اسم المستخدم:</label>
+        <input type="text" id="username" value="admin" required>
+      </div>
+      <div class="form-group">
+        <label for="password">كلمة المرور:</label>
+        <input type="password" id="password" value="admin123" required>
+      </div>
+      <button type="submit" id="loginButton">دخول</button>
+      <div class="loading" id="loading">جاري تسجيل الدخول...</div>
+      <div id="error" class="error"></div>
+      <div id="success" class="success"></div>
+    </form>
+
+    <div class="debug" id="debugInfo">
+      <strong>Debug Information:</strong><br>
+      <div id="debugContent">Ready to login...</div>
+    </div>
+  </div>
+
+  <script>
+    function showMessage(type, message) {
+      const errorDiv = document.getElementById('error');
+      const successDiv = document.getElementById('success');
+      
+      if (type === 'error') {
+        errorDiv.textContent = message;
+        errorDiv.style.display = 'block';
+        successDiv.style.display = 'none';
+      } else {
+        successDiv.textContent = message;
+        successDiv.style.display = 'block';
+        errorDiv.style.display = 'none';
+      }
+    }
+
+    function updateDebug(message) {
+      const debugContent = document.getElementById('debugContent');
+      const timestamp = new Date().toLocaleTimeString();
+      debugContent.innerHTML += `<br>[${timestamp}] ${message}`;
+    }
+
+    function setLoading(isLoading) {
+      const button = document.getElementById('loginButton');
+      const loading = document.getElementById('loading');
+      
+      button.disabled = isLoading;
+      loading.style.display = isLoading ? 'block' : 'none';
+      button.textContent = isLoading ? 'جاري المعالجة...' : 'دخول';
+    }
+
+    // Check if already logged in
+    window.addEventListener('load', async () => {
+      const token = sessionStorage.getItem('adminToken');
+      if (token) {
+        updateDebug('Found existing token, verifying...');
+        try {
+          const response = await fetch('/api/verify-token', {
+            headers: {
+              'Authorization': `Bearer ${token}`,
+              'x-admin-token': token
+            }
+          });
+          
+          if (response.ok) {
+            const data = await response.json();
+            if (data.valid) {
+              updateDebug('Token is valid, redirecting to admin...');
+              showMessage('success', 'Already logged in, redirecting...');
+              setTimeout(() => {
+                window.location.href = '/admin';
+              }, 1000);
+              return;
+            }
+          }
+          updateDebug('Token is invalid, clearing...');
+          sessionStorage.removeItem('adminToken');
+        } catch (error) {
+          updateDebug(`Token verification error: ${error.message}`);
+          sessionStorage.removeItem('adminToken');
+        }
+      }
+      updateDebug('No valid token found, ready for login');
+    });
+
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      setLoading(true);
+      
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      
+      updateDebug(`Attempting login for user: ${username}`);
+      updateDebug(`Password length: ${password.length} characters`);
+
+      try {
+        updateDebug('Sending login request...');
+        const response = await fetch('/api/admin-login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password })
+        });
+
+        updateDebug(`Response status: ${response.status} ${response.statusText}`);
+        
+        const responseText = await response.text();
+        updateDebug(`Response body: ${responseText}`);
+        
+        let data;
+        try {
+          data = JSON.parse(responseText);
+        } catch (parseError) {
+          updateDebug(`JSON parse error: ${parseError.message}`);
+          throw new Error('Invalid response format from server');
+        }
+
+        if (response.ok && data.success) {
+          updateDebug(`Login successful! Token: ${data.token ? 'received' : 'missing'}`);
+          
+          if (data.token) {
+            // Store token
+            sessionStorage.setItem('adminToken', data.token);
+            updateDebug('Token stored in sessionStorage');
+            
+            showMessage('success', 'تم تسجيل الدخول بنجاح! جاري التوجيه...');
+            
+            // Verify token was stored
+            const storedToken = sessionStorage.getItem('adminToken');
+            updateDebug(`Stored token verification: ${storedToken ? 'success' : 'failed'}`);
+            
+            // Redirect after a short delay
+            setTimeout(() => {
+              updateDebug('Redirecting to admin panel...');
+              window.location.href = '/admin';
+            }, 1500);
+          } else {
+            throw new Error('No token received from server');
+          }
+        } else {
+          updateDebug(`Login failed: ${data.error || 'Unknown error'}`);
+          showMessage('error', data.error || 'فشل تسجيل الدخول');
+        }
+
+      } catch (error) {
+        updateDebug(`Network/System error: ${error.message}`);
+        showMessage('error', `خطأ في الشبكة: ${error.message}`);
+        console.error('Login error:', error);
+      } finally {
+        setLoading(false);
+      }
+    });
+
+    // Test server connectivity on page load
+    window.addEventListener('load', async () => {
+      try {
+        updateDebug('Testing server connectivity...');
+        const response = await fetch('/api/health');
+        if (response.ok) {
+          const health = await response.json();
+          updateDebug(`Server is healthy. Status: ${health.status}`);
+        } else {
+          updateDebug(`Server health check failed: ${response.status}`);
+        }
+      } catch (error) {
+        updateDebug(`Server connectivity test failed: ${error.message}`);
+      }
+    });
+  </script>
+</body>
+</html>

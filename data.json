@@ -1,0 +1,68 @@
+{
+  "adminCredentials": {
+    "username": "admin",
+    "password": "admin123"
+  },
+  "menuCategories": [
+    {
+      "id": "hot-drinks",
+      "name": "المشروبات الساخنة",
+      "icon": "fa-coffee",
+      "items": [
+        {
+          "id": 1,
+          "name": "شاي",
+          "description": "شاي عربي أصيل مع نكهة مميزة من أوراق الشاي الطازجة.",
+          "price": "25 ريال",
+          "image": "https://i.postimg.cc/MZm0pq9N/6.png"
+        },
+        {
+          "id": 2,
+          "name": "شاي انجليزي",
+          "description": "شاي إنجليزي كلاسيكي مع نكهة قوية ومنعشة.",
+          "price": "15 ريال",
+          "image": "https://i.postimg.cc/MZm0pq9N/6.png"
+        }
+      ]
+    },
+    {
+      "id": "cold-drinks",
+      "name": "المشروبات الباردة",
+      "icon": "fa-glass-whiskey",
+      "items": [
+        {
+          "id": 1,
+          "name": "قهوه تركي",
+          "description": "قهوة تركية أصيلة مع رائحة ونكهة مميزة.",
+          "price": "19 ريال",
+          "image": "https://i.postimg.cc/MZm0pq9N/6.png"
+        },
+        {
+          "id": 1,
+          "name": "شاي",
+          "description": "شاي عربي أصيل مع نكهة مميزة من أوراق الشاي الطازجة.",
+          "price": "25 ريال",
+          "image": "https://i.postimg.cc/MZm0pq9N/6.png"
+        },{
+          "id": 1,
+          "name": "شاي",
+          "description": "شاي عربي أصيل مع نكهة مميزة من أوراق الشاي الطازجة.",
+          "price": "25 ريال",
+          "image": "https://i.postimg.cc/MZm0pq9N/6.png"
+        },{
+          "id": 1,
+          "name": "شاي",
+          "description": "شاي عربي أصيل مع نكهة مميزة من أوراق الشاي الطازجة.",
+          "price": "25 ريال",
+          "image": "https://i.postimg.cc/MZm0pq9N/6.png"
+        },{
+          "id": 1,
+          "name": "شاي",
+          "description": "شاي عربي أصيل مع نكهة مميزة من أوراق الشاي الطازجة.",
+          "price": "25 ريال",
+          "image": "https://i.postimg.cc/MZm0pq9N/6.png"
+        }
+      ]
+    }
+  ]
+}

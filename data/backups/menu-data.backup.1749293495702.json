@@ -1,0 +1,19 @@
+{
+  "menuCategories": [
+    {
+      "id": "mbleuzu0zvdf8fy9fwl4g",
+      "name": "مشروبات",
+      "icon": "fas fa-glass-martini-alt",
+      "items": []
+    }
+  ],
+  "metadata": {
+    "lastModified": "2025-06-07T10:48:33.909Z",
+    "version": "1.0.0",
+    "created": "2025-06-06T21:29:32.925Z"
+  },
+  "adminCredentials": {
+    "username": "admin",
+    "password": "admin123"
+  }
+}

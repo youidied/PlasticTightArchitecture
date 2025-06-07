@@ -1,0 +1,55 @@
+{
+  "menuCategories": [
+    {
+      "id": "mbleuzu0zvdf8fy9fwl4g",
+      "name": "مشروبات",
+      "icon": "fas fa-glass-martini-alt",
+      "items": [
+        {
+          "id": "mblfeu6lh0ehxfzwaskf",
+          "name": "موية",
+          "description": "شرب ماء",
+          "price": 1,
+          "image": "https://th.bing.com/th/id/OIP.wQNhs54HX8bmQN3zLOUZqgHabU?rs=1&pid=ImgDetMain"
+        },
+        {
+          "id": "mblfeu6lh0ehxdfgdgzwaskf",
+          "name": "موية",
+          "description": "شرب ماء",
+          "price": 134,
+          "image": "https://th.bing.com/th/id/OIP.wQNhs54HX8bmQN3zLOUZqgHabU?rs=1&pid=ImgDetMain"
+        },
+        {
+          "id": "mblfeu6lh0ehxdfgdgzwaskf",
+          "name": "موية",
+          "description": "شرب ماء",
+          "price": 1,
+          "image": "https://th.bing.com/th/id/OIP.wQNhs54HX8bmQN3zLOUZqgHabU?rs=1&pid=ImgDetMain"
+        },
+        {
+          "id": "mblfeu6lh0ehxzdfgwaskf",
+          "name": "موية",
+          "description": "شرب ماء",
+          "price": 1,
+          "image": "https://th.bing.com/th/id/OIP.wQNhs54HX8bmQN3zLOUZqgHabU?rs=1&pid=ImgDetMain"
+        },
+        {
+          "id": "mblfeu6lh0esfdhghxzwaskf",
+          "name": "موية",
+          "description": "شرب ماء",
+          "price": 1,
+          "image": "https://th.bing.com/th/id/OIP.wQNhs54HX8bmQN3zLOUZqgHabU?rs=1&pid=ImgDetMain"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "lastModified": "2025-06-07T10:47:44.750Z",
+    "version": "1.0.0",
+    "created": "2025-06-06T21:29:32.925Z"
+  },
+  "adminCredentials": {
+    "username": "admin",
+    "password": "admin123"
+  }
+}
