@@ -46,47 +46,11 @@
       "id": "mbm4unnsym0lonya3s",
       "name": "7",
       "icon": "fas fa-glass-martin",
-      "items": [
-        {
-          "id": "mbm549lgypswhw16bsr",
-          "name": "عصير بطيخ ",
-          "description": "ص",
-          "price": 19,
-          "image": "https://i.postimg.cc/VNfcyF8H/A-casual-photo-of-A-natural-fr.jpg"
-        },
-        {
-          "id": "mbm564q7vdlzb18xymn",
-          "name": "عصير برتقال",
-          "description": "ص",
-          "price": 13,
-          "image": "https://i.postimg.cc/R0pCXYHT/A-casual-photo-of-A-tall-elega.jpg"
-        },
-        {
-          "id": "mbm59rq635zzhhwz52x",
-          "name": "عصير مانجو",
-          "description": "ث",
-          "price": 24,
-          "image": "https://i.postimg.cc/ZR0tnK08/A-casual-photo-of-A-tall-elega-1.jpg"
-        },
-        {
-          "id": "mbm5cv8lyds7judjab",
-          "name": "عصير افوكادو",
-          "description": "ق",
-          "price": 54,
-          "image": "https://i.postimg.cc/QMdxgDHt/A-casual-photo-of-A-tall-elega-10.jpg"
-        },
-        {
-          "id": "mbm5dl6hsmk8fmvkpf",
-          "name": "عصير ",
-          "description": "خ",
-          "price": 46,
-          "image": "https://i.postimg.cc/JngwkVB9/A-casual-photo-of-A-tall-elega-2.jpg"
-        }
-      ]
+      "items": []
     }
   ],
   "metadata": {
-    "lastModified": "2025-06-07T11:25:03.946Z",
+    "lastModified": "2025-06-07T11:14:51.049Z",
     "version": "1.0.0",
     "created": "2025-06-06T21:29:32.925Z"
   },

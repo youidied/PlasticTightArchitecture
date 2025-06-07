@@ -67,26 +67,12 @@
           "description": "ث",
           "price": 24,
           "image": "https://i.postimg.cc/ZR0tnK08/A-casual-photo-of-A-tall-elega-1.jpg"
-        },
-        {
-          "id": "mbm5cv8lyds7judjab",
-          "name": "عصير افوكادو",
-          "description": "ق",
-          "price": 54,
-          "image": "https://i.postimg.cc/QMdxgDHt/A-casual-photo-of-A-tall-elega-10.jpg"
-        },
-        {
-          "id": "mbm5dl6hsmk8fmvkpf",
-          "name": "عصير ",
-          "description": "خ",
-          "price": 46,
-          "image": "https://i.postimg.cc/JngwkVB9/A-casual-photo-of-A-tall-elega-2.jpg"
         }
       ]
     }
   ],
   "metadata": {
-    "lastModified": "2025-06-07T11:25:03.946Z",
+    "lastModified": "2025-06-07T11:22:05.883Z",
     "version": "1.0.0",
     "created": "2025-06-06T21:29:32.925Z"
   },
